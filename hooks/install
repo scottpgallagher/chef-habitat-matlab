@@ -1,0 +1,4 @@
+Write-Host "Installing Matlab"
+dir {{pkg.path}}\src\matlab-r2019b
+Invoke-WebRequest -Uri "https://sgallagher.s3.amazonaws.com/installer_input.txt" -OutFile "{{pkg.path}}\src\matlab-r2019b\installer_input.txt"
+Start-Process "{{pkg.path}}\src\matlab-r2019b\setup.exe" -Wait -ArgumentList "-inputFile {{pkg.path}}\src\matlab-r2019b\installer_input.txt"
